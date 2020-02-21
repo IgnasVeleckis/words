@@ -1,0 +1,21 @@
+.display {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 5px;
+        border: 1px solid black;
+        margin: .5rem;
+        &.hidden {
+            background-color: black;
+        }
+        &.show {
+            background-color: white;
+        }
+    }
+}

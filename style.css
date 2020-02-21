@@ -1,0 +1,63 @@
+.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.display span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: .5rem;
+}
+
+.display span.hidden {
+  background-color: black;
+}
+
+.display span.show {
+  background-color: white;
+}
+
+.letters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.letters button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: .5rem;
+}
+
+.letters button:hover {
+  background-color: #c9c9c9;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.letters button.touched {
+  background-color: black;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */
