@@ -1,0 +1,15 @@
+.life_bar {
+    width: 20%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    p {
+        color: white;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        width: 3rem;
+    }
+}

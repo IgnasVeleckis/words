@@ -29,16 +29,12 @@ const allLetters = [
 
 
 function createSecretWord() {
-    const secretWord = 'giltine'; // take word from array
+    const secretWord = 'accomplishment'; // take word from array
     const fullWordArray = secretWord.split('');
     const fullWordArrayUntouched = secretWord.split('');
 
-
-
     const containerLetter = document.querySelector('.letters');
     const containerDisplay = document.querySelector('.display');
-
-
 
     for (let i = 0; i < fullWordArray.length; i++) { // creating hidden word 
         const span = document.createElement('span');
@@ -47,38 +43,41 @@ function createSecretWord() {
         containerDisplay.appendChild(span)
     }
 
-
-    let mixedArray = shuffleArray(fullWordArray); // mixed letters array, (add more random letters)
-
-    let arrayNoDup = [...new Set(mixedArray)] // array of no duplicates
-
-    let removed = allLetters.filter(val => !arrayNoDup.includes(val)); // isimtos raides kurias turi paduotas zodis
+    shuffleArray(allLetters); // mixed letters array, (add more random letters)
 
 
-    for (let i = 0; i < arrayNoDup.length; i++) {
+    /*     let arrayNoDup = [...new Set(mixedArray)] // array of no duplicates
+
+        let removed = allLetters.filter(val => !arrayNoDup.includes(val)); // isimtos raides kurias turi paduotas zodis
+        console.log(removed.concat(arrayNoDup).sort())
+     */
+
+
+
+    for (let i = 0; i < allLetters.length; i++) {
         const button = document.createElement('button');
-        let letter = arrayNoDup[i]
+        let letter = allLetters[i]
         button.textContent = letter;
-        button.addEventListener('click', function() {
+        button.addEventListener('click', () => {
 
             button.classList.add('touched')
-
-            for (let i = 0; i < fullWordArrayUntouched.length; i++) {
-                if (letter == fullWordArrayUntouched[i]) {
-                    let element = document.getElementsByTagName('span')[i];
-                    element.classList.remove('hidden')
+            if (fullWordArray.indexOf(letter) == -1) {
+                console.log('remove heart') // add red backround
+            } else {
+                for (let i = 0; i < fullWordArrayUntouched.length; i++) {
+                    if (letter == fullWordArrayUntouched[i]) {
+                        let element = document.getElementsByTagName('span')[i];
+                        element.classList.remove('hidden')
+                            // add green background
+                    }
                 }
+
             }
-
-
 
 
         })
         containerLetter.appendChild(button)
     }
-
-
-
 }
 
 function shuffleArray(array) {
@@ -94,7 +93,10 @@ function shuffleArray(array) {
     return array;
 }
 
-
+function removeHeart() {
+    const element = document.querySelector('.life');
+    element.remove;
+}
 
 
 createSecretWord() // auto start
