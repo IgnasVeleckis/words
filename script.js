@@ -27,8 +27,30 @@ const allLetters = [
     'z'
 ]
 
+const fetchPokemon = () => {
+    let random = Math.floor(Math.random() * 400)
 
-function createSecretWord() {
+    console.log(Math.floor(random))
+    const url = `https://pokeapi.co/api/v2/pokemon/${random}`;
+    fetch(url)
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            let pokeName = data.forms[0].name
+
+            return pokeName
+
+        })
+}
+
+
+
+
+function createSecretWord(word) {
+
+
+
     const secretWord = 'accomplishment'; // take word from array
     const fullWordArray = secretWord.split('');
     const fullWordArrayUntouched = secretWord.split('');
@@ -62,7 +84,7 @@ function createSecretWord() {
 
             button.classList.add('touched')
             if (fullWordArray.indexOf(letter) == -1) {
-                console.log('remove heart') // add red backround
+                removeHeart() // add red backround
             } else {
                 for (let i = 0; i < fullWordArrayUntouched.length; i++) {
                     if (letter == fullWordArrayUntouched[i]) {
@@ -92,11 +114,28 @@ function shuffleArray(array) {
     }
     return array;
 }
+let removed = 0;
 
 function removeHeart() {
     const element = document.querySelector('.life');
-    element.remove;
+
+    console.log(removed)
+    if (removed == 2) {
+        element.remove();
+        endTable()
+    } else if (removed < 2) {
+        element.remove();
+        removed++
+        console.log(removed)
+    }
 }
+
+function endTable() {
+    document.querySelector('.end').classList.remove('hidden');
+
+
+}
+
 
 
 createSecretWord() // auto start
