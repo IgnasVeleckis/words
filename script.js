@@ -112,7 +112,6 @@ function createSecretWord(name) {
                     if (letter == fullWordArrayUntouched[i]) {
                         let element = document.getElementsByTagName('span')[i + 1];
                         element.classList.remove('hidden')
-
                     }
                 }
             }
@@ -150,7 +149,7 @@ function removeHeart() {
 function endTable() {
     document.querySelector('.end').classList.remove('hidden');
 }
-
+endTable()
 
 function animation(domElement, animation) {
     const element = document.querySelector(`.${domElement}`);

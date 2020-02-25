@@ -50,3 +50,21 @@
         display: none;
     }
 }
+
+@media (max-width: 716px) {
+    .difficulty {
+        .button {
+            button {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 553px) {
+    .difficulty {
+        .button {
+            width: 80%;
+        }
+    }
+}
