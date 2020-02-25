@@ -1,5 +1,52 @@
 .difficulty {
-    margin-bottom: 3rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $bckgrnd;
+    .logo {
+        display: flex;
+        justify-content: center;
+        height: 50%;
+        width: 50%;
+    }
+    .title {
+        span {
+            font-size: 1.5rem;
+            color: $primary;
+            font-weight: 600;
+        }
+    }
+    .button {
+        display: flex;
+        justify-content: center;
+        height: 50%;
+        width: 50%;
+        button {
+            height: 20%;
+            width: 40%;
+            min-width: 30%;
+            margin: 1rem;
+            border-radius: 20px;
+            color: white;
+            background-color: $primary;
+            font-size: 1.5rem;
+            border: none;
+            transition: .2s;
+            padding: 0 1rem;
+            &:hover {
+                cursor: pointer;
+                background-color: white;
+                color: $primary;
+            }
+        }
+    }
+    &.hide {
+        display: none;
+    }
 }

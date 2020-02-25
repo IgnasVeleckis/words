@@ -30,7 +30,16 @@ const allLetters = [
 var name;
 var poke_pic;
 var removed = 4;
+var game_mode;
 
+const diff = (difficulty) => {
+    if (difficulty) {
+        const startContainer = document.querySelector('.difficulty')
+        startContainer.classList.add('hide')
+        game_mode = difficulty
+        fetchPokemon()
+    }
+}
 
 const fetchPokemon = () => {
     const promises = []
@@ -38,7 +47,6 @@ const fetchPokemon = () => {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
-
 
     Promise.all(promises).then(results => {
         const pokemon = results.map((data) => ({
@@ -54,16 +62,19 @@ const fetchPokemon = () => {
     })
 }
 
-
-
-
-fetchPokemon()
-
-
 function createSecretWord(name) {
     const heartContainer = document.querySelector('.life');
+    if (game_mode == 1) {
+        console.log('game mode: ' + game_mode)
+        removed = 6
+    } else if (game_mode == 2) {
+        removed = 4
+        console.log('game mode: ' + game_mode)
+    } else if (game_mode == 3) {
+        console.log('game mode: ' + game_mode)
+        removed = 999 // 2
+    }
     heartContainer.innerHTML = removed + 1
-
 
     document.querySelector('.end').classList.add('hidden');
 
@@ -83,13 +94,13 @@ function createSecretWord(name) {
 
     shuffleArray(allLetters);
 
+
     for (let i = 0; i < allLetters.length; i++) {
         const button = document.createElement('button');
         let letter = allLetters[i]
         button.textContent = letter;
         button.addEventListener('click', () => {
             button.classList.add('green')
-
             if (fullWordArray.indexOf(letter) == -1) {
                 button.classList.add(`${letter}`)
                 removeHeart()
@@ -99,7 +110,7 @@ function createSecretWord(name) {
             } else {
                 for (let i = 0; i < fullWordArrayUntouched.length; i++) {
                     if (letter == fullWordArrayUntouched[i]) {
-                        let element = document.getElementsByTagName('span')[i];
+                        let element = document.getElementsByTagName('span')[i + 1];
                         element.classList.remove('hidden')
 
                     }
