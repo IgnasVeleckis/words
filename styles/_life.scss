@@ -1,6 +1,7 @@
 .life_bar {
     width: 20%;
     margin: 2rem auto;
+    font-size: 2rem;
     display: flex;
     justify-content: space-between;
     .heart {
@@ -8,9 +9,8 @@
         justify-content: center;
         align-items: center;
         p {
-            background-color: red;
-            height: 3rem;
-            width: 3rem;
+            color: red;
+            font-weight: 600;
         }
     }
 }

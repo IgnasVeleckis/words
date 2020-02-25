@@ -27,31 +27,47 @@ const allLetters = [
     'z'
 ]
 
+var name;
+var poke_pic;
+var removed = 4;
+
+
 const fetchPokemon = () => {
-    let random = Math.floor(Math.random() * 400)
+    const promises = []
+    for (let i = 1; i <= 400; i++) {
+        const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+        promises.push(fetch(url).then((res) => res.json()));
+    }
 
-    console.log(Math.floor(random))
-    const url = `https://pokeapi.co/api/v2/pokemon/${random}`;
-    fetch(url)
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            let pokeName = data.forms[0].name
 
-            return pokeName
-
-        })
+    Promise.all(promises).then(results => {
+        const pokemon = results.map((data) => ({
+            name: data.name,
+            image: data.sprites['front_default']
+        }))
+        let random = Math.floor(Math.random() * 400)
+        name = pokemon[random].name
+        poke_pic = pokemon[random].image
+        const pictureContainer = document.getElementById('poke_image');
+        pictureContainer.src = poke_pic
+        createSecretWord(name)
+    })
 }
 
 
 
 
-function createSecretWord(word) {
+fetchPokemon()
 
 
+function createSecretWord(name) {
+    const heartContainer = document.querySelector('.life');
+    heartContainer.innerHTML = removed + 1
 
-    const secretWord = 'accomplishment'; // take word from array
+
+    document.querySelector('.end').classList.add('hidden');
+
+    const secretWord = name;
     const fullWordArray = secretWord.split('');
     const fullWordArrayUntouched = secretWord.split('');
 
@@ -65,38 +81,30 @@ function createSecretWord(word) {
         containerDisplay.appendChild(span)
     }
 
-    shuffleArray(allLetters); // mixed letters array, (add more random letters)
-
-
-    /*     let arrayNoDup = [...new Set(mixedArray)] // array of no duplicates
-
-        let removed = allLetters.filter(val => !arrayNoDup.includes(val)); // isimtos raides kurias turi paduotas zodis
-        console.log(removed.concat(arrayNoDup).sort())
-     */
-
-
+    shuffleArray(allLetters);
 
     for (let i = 0; i < allLetters.length; i++) {
         const button = document.createElement('button');
         let letter = allLetters[i]
         button.textContent = letter;
         button.addEventListener('click', () => {
+            button.classList.add('green')
 
-            button.classList.add('touched')
             if (fullWordArray.indexOf(letter) == -1) {
-                removeHeart() // add red backround
+                button.classList.add(`${letter}`)
+                removeHeart()
+                const letterBtn = document.querySelector(`.${letter}`)
+                letterBtn.parentNode.removeChild(letterBtn)
+                animation('display', 'wiggle')
             } else {
                 for (let i = 0; i < fullWordArrayUntouched.length; i++) {
                     if (letter == fullWordArrayUntouched[i]) {
                         let element = document.getElementsByTagName('span')[i];
                         element.classList.remove('hidden')
-                            // add green background
+
                     }
                 }
-
             }
-
-
         })
         containerLetter.appendChild(button)
     }
@@ -114,28 +122,29 @@ function shuffleArray(array) {
     }
     return array;
 }
-let removed = 0;
+
+
 
 function removeHeart() {
-    const element = document.querySelector('.life');
+    const heartContainer = document.querySelector('.life');
+    heartContainer.innerHTML = removed
 
-    console.log(removed)
-    if (removed == 2) {
-        element.remove();
+    if (removed == 0) {
         endTable()
-    } else if (removed < 2) {
-        element.remove();
-        removed++
-        console.log(removed)
+    } else {
+        removed--
     }
 }
 
 function endTable() {
     document.querySelector('.end').classList.remove('hidden');
-
-
 }
 
 
-
-createSecretWord() // auto start
+function animation(domElement, animation) {
+    const element = document.querySelector(`.${domElement}`);
+    element.classList.add(`${animation}`)
+    setTimeout((() => {
+        element.classList.remove(`${animation}`)
+    }), 500)
+}

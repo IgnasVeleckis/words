@@ -5,30 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
+    <div class="difficulty">
+        <button>Easy <br> first letter uncovered <br> 6 lifes</button>
+        <button>Normal<br>all letters hidden <br> 5 lifes</button>
+        <button>Hard <br> all letters hidden<br>3 lifes</button>
+    </div>
 
-    <!-- <button onclick="createSecretWord()" style="padding: 1rem; cursor:
-            pointer;">START</button> -->
+
+    <div class="image">
+        <img src="" alt="pokemon" id="poke_image">
+    </div>
+
     <div class="display"></div>
 
     <div class="letters"></div>
 
     <div class="life_bar">
         <span style="display: flex; justify-content: center; align-items:
-                center;">Life:</span>
+                center;">Lifes:</span>
         <div class="heart">
-            <p class="life"></p>
-            <p class="life"></p>
             <p class="life"></p>
         </div>
     </div>
 
     <div class="end hidden">
         <span>Game over</span>
-        <button>Play again</button>
+        <button onclick="createSecretWord()">Play again</button>
     </div>
 
     <script src="script.js"></script>
