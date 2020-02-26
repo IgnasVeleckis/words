@@ -38,6 +38,7 @@ const diff = (difficulty) => {
         startContainer.classList.add('hide')
         game_mode = difficulty
         fetchPokemon()
+        loading()
     }
 }
 
@@ -106,7 +107,7 @@ function createSecretWord(name) {
                 removeHeart()
                 const letterBtn = document.querySelector(`.${letter}`)
                 letterBtn.parentNode.removeChild(letterBtn)
-                animation('display', 'wiggle')
+                animation('display', 'wiggle', 500)
             } else {
                 for (let i = 0; i < fullWordArrayUntouched.length; i++) {
                     if (letter == fullWordArrayUntouched[i]) {
@@ -150,12 +151,17 @@ function endTable() {
     document.querySelector('.end').classList.remove('hidden');
 }
 
-function animation(domElement, animation) {
+function animation(domElement, animation, timeout) {
     const element = document.querySelector(`.${domElement}`);
     element.classList.add(`${animation}`)
     setTimeout((() => {
         element.classList.remove(`${animation}`)
-    }), 500)
+    }), timeout)
+}
+
+function loading() {
+    animation('load', 'opacity', 1800)
+
 }
 
 function restart() {
