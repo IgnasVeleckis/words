@@ -149,8 +149,12 @@ function removeHeart() {
     }
 }
 
-function endTable() {
-    document.querySelector('.end').classList.remove('hidden');
+function endTable(val) {
+    if (val) {
+        document.querySelector('.end').classList.add('hidden');
+    } else {
+        document.querySelector('.end').classList.remove('hidden');
+    }
 }
 
 
@@ -176,4 +180,16 @@ function loading(val) {
 
 function win() {
 
+}
+
+function reset() {
+
+    const startContainer = document.querySelector('.difficulty')
+    const display = document.querySelector('.display')
+    const letters = document.querySelector('.letters')
+    startContainer.classList.remove('hide')
+    display.innerHTML = ''
+    letters.innerHTML = ''
+    endTable(1)
+    diff()
 }
