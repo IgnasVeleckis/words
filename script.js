@@ -31,6 +31,7 @@ var name;
 var poke_pic;
 var removed = 4;
 var game_mode;
+var word = [];
 
 
 
@@ -97,14 +98,26 @@ function createSecretWord(name) {
         containerDisplay.appendChild(span)
     }
 
+
     shuffleArray(allLetters);
+    const display = document.querySelector('.display')
+    const units = display.children;
+    for (let i = 0; i < fullWordArrayUntouched.length; i++) {
+        word.push(units[i].classList)
+    }
 
     for (let i = 0; i < allLetters.length; i++) {
         const button = document.createElement('button');
         let letter = allLetters[i]
         button.textContent = letter;
+        let value = button.value
+        value = 0
+
         button.addEventListener('click', () => {
+            value++
+
             button.classList.add('green')
+
             if (fullWordArray.indexOf(letter) == -1) {
                 button.classList.add(`${letter}`)
                 removeHeart()
@@ -112,16 +125,33 @@ function createSecretWord(name) {
                 letterBtn.parentNode.removeChild(letterBtn)
                 animation('display', 'wiggle', 500)
             } else {
-                for (let i = 0; i < fullWordArrayUntouched.length; i++) {
-                    if (letter == fullWordArrayUntouched[i]) {
-                        let element = document.getElementsByTagName('span')[i + 1];
-                        element.classList.remove('hidden')
+                if (value == 1) {
+                    for (let i = 0; i < fullWordArrayUntouched.length; i++) {
+                        if (letter == fullWordArrayUntouched[i]) {
+                            let element = document.getElementsByTagName('span')[i + 1];
+                            element.classList.remove('hidden')
+                            word.pop()
+                            if (word.length == 0) {
+                                win(1)
+                                setTimeout(() => {
+                                    win()
+                                }, 5000)
+                            }
+
+                        }
                     }
                 }
             }
         })
+
+
         containerLetter.appendChild(button)
     }
+}
+
+function removeEvent() {
+    console.log('aaa')
+
 }
 
 function shuffleArray(array) {
@@ -178,9 +208,29 @@ function loading(val) {
 }
 
 
-function win() {
+function win(add) {
 
+
+
+    if (add) {
+        const container = document.createElement('div')
+        container.classList.add('win')
+        container.textContent = "YOU WIN!!!"
+        container.classList.add('show')
+        document.body.appendChild(container)
+        animation('win', 'turn360', 5000)
+    } else {
+        const containerr = document.querySelector('.win')
+        document.body.removeChild(containerr)
+        reset()
+    }
 }
+
+/* win(1)
+
+setTimeout(() => {
+    win()
+}, 2000) */
 
 function reset() {
 
