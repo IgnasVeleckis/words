@@ -63,7 +63,7 @@ const fetchPokemon = () => {
 }
 
 function createSecretWord(name) {
-    const heartContainer = document.querySelector('.life');
+    const heartContainer = document.querySelector('.live');
     if (game_mode == 1) {
         console.log('game mode: ' + game_mode)
         removed = 6
@@ -136,7 +136,7 @@ function shuffleArray(array) {
 
 
 function removeHeart() {
-    const heartContainer = document.querySelector('.life');
+    const heartContainer = document.querySelector('.live');
     heartContainer.innerHTML = removed
 
     if (removed == 0) {

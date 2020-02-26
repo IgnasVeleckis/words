@@ -233,7 +233,7 @@ body {
   }
 }
 
-.life_bar {
+.live_bar {
   width: 20%;
   margin: 2rem auto;
   font-size: 2rem;
@@ -245,7 +245,7 @@ body {
           justify-content: space-between;
 }
 
-.life_bar .heart {
+.live_bar .heart {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,7 +257,7 @@ body {
           align-items: center;
 }
 
-.life_bar .heart p {
+.live_bar .heart p {
   color: red;
   font-weight: 600;
 }

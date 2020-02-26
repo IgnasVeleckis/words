@@ -10,7 +10,7 @@
         "_display.scss",
         "_letters.scss",
         "_difficulty.scss",
-        "_life.scss",
+        "_live.scss",
         "_end.scss"
     ],
     "names": [],
