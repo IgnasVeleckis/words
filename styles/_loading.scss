@@ -1,20 +1,19 @@
 .load {
     display: none;
-}
-
-.opacity {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    animation: opacity;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 100;
-    transition: 3s;
-    background-color: $bckgrnd;
-    font-size: 3rem;
-    color: $primary;
+    &.show {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        animation: opacity;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+        transition: 3s;
+        background-color: $bckgrnd;
+        font-size: 3rem;
+        color: $primary;
+    }
 }
