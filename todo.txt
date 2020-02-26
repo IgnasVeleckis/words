@@ -1,0 +1,7 @@
+loading screen
+
+win screen
+
+difficulty settings
+
+play again button resets the game

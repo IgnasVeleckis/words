@@ -149,7 +149,6 @@ function removeHeart() {
 function endTable() {
     document.querySelector('.end').classList.remove('hidden');
 }
-endTable()
 
 function animation(domElement, animation) {
     const element = document.querySelector(`.${domElement}`);
@@ -157,4 +156,8 @@ function animation(domElement, animation) {
     setTimeout((() => {
         element.classList.remove(`${animation}`)
     }), 500)
+}
+
+function restart() {
+
 }
