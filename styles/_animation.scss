@@ -24,3 +24,18 @@
         transform: rotate(360deg);
     }
 }
+
+@keyframes zoom_in_out {
+    25% {
+        transform: scale(2);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

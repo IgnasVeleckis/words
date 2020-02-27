@@ -1,7 +1,3 @@
-loading screen
+style
 
-win screen
-
-difficulty settings
-
-play again button resets the game
+pokemon name with -

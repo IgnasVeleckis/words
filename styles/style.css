@@ -66,6 +66,44 @@
   }
 }
 
+@-webkit-keyframes zoom_in_out {
+  25% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes zoom_in_out {
+  25% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -96,7 +134,16 @@ body {
   margin-bottom: 3rem;
 }
 
-.display span {
+.display .display_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.display .display_container span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -116,16 +163,16 @@ body {
   font-size: 1.5rem;
 }
 
-.display span.hidden {
+.display .display_container span.hidden {
   background-color: #0761b6;
   color: #0761b6;
 }
 
-.display span.show {
+.display .display_container span.show {
   background-color: white;
 }
 
-.display.wiggle {
+.display .display_container.wiggle {
   -webkit-animation: wiggle .5s;
           animation: wiggle .5s;
 }
@@ -199,6 +246,10 @@ body {
           justify-content: center;
   height: 50%;
   width: 50%;
+}
+
+.difficulty .logo img {
+  height: 100%;
 }
 
 .difficulty .title span {
@@ -288,6 +339,25 @@ body {
   display: none;
 }
 
+.win .win_win {
+  width: 30%;
+  height: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.win .win_win.zoom_in_out {
+  -webkit-animation: zoom_in_out 5s;
+          animation: zoom_in_out 5s;
+}
+
 .win.show {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -311,11 +381,6 @@ body {
   background-color: #fffc67;
   font-size: 3rem;
   color: #0761b6;
-}
-
-.win.turn360 {
-  -webkit-animation: turn360 5s;
-          animation: turn360 5s;
 }
 
 .end {

@@ -89,7 +89,7 @@ function createSecretWord(name) {
     const fullWordArrayUntouched = secretWord.split('');
 
     const containerLetter = document.querySelector('.letters');
-    const containerDisplay = document.querySelector('.display');
+    const containerDisplay = document.querySelector('.display_container');
 
     for (let i = 0; i < fullWordArray.length; i++) { // creating hidden word 
         const span = document.createElement('span');
@@ -100,7 +100,7 @@ function createSecretWord(name) {
 
 
     shuffleArray(allLetters);
-    const display = document.querySelector('.display')
+    const display = document.querySelector('.display_container')
     const units = display.children;
     for (let i = 0; i < fullWordArrayUntouched.length; i++) {
         word.push(units[i].classList)
@@ -123,7 +123,7 @@ function createSecretWord(name) {
                 removeHeart()
                 const letterBtn = document.querySelector(`.${letter}`)
                 letterBtn.parentNode.removeChild(letterBtn)
-                animation('display', 'wiggle', 500)
+                animation('display_container', 'wiggle', 500)
             } else {
                 if (value == 1) {
                     for (let i = 0; i < fullWordArrayUntouched.length; i++) {
@@ -214,11 +214,14 @@ function win(add) {
 
     if (add) {
         const container = document.createElement('div')
+        const div = document.createElement('div')
         container.classList.add('win')
-        container.textContent = "YOU WIN!!!"
+        div.classList.add('win_win')
+        div.textContent = "YOU WIN!!!"
         container.classList.add('show')
+        container.appendChild(div)
         document.body.appendChild(container)
-        animation('win', 'turn360', 5000)
+        animation('win_win', 'zoom_in_out', 5000)
     } else {
         const containerr = document.querySelector('.win')
         document.body.removeChild(containerr)

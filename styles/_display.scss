@@ -2,27 +2,31 @@
     display: flex;
     justify-content: center;
     margin-bottom: 3rem;
-    span {
+    .display_container {
         display: flex;
         justify-content: center;
-        align-items: center;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 10px;
-        margin: 1%;
-        color: $primary;
-        background-color: $primary;
-        color: white;
-        font-size: 1.5rem;
-        &.hidden {
-            background-color: $primary;
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 10px;
+            margin: 1%;
             color: $primary;
+            background-color: $primary;
+            color: white;
+            font-size: 1.5rem;
+            &.hidden {
+                background-color: $primary;
+                color: $primary;
+            }
+            &.show {
+                background-color: white;
+            }
         }
-        &.show {
-            background-color: white;
+        &.wiggle {
+            animation: wiggle .5s;
         }
-    }
-    &.wiggle {
-        animation: wiggle .5s;
     }
 }
