@@ -6,3 +6,12 @@
         width: 200px;
     }
 }
+
+@media (max-width: 553px) {
+    .image {
+        img {
+            height: 160px;
+            width: 160px;
+        }
+    }
+}

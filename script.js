@@ -123,7 +123,7 @@ function createSecretWord(name) {
                 removeHeart()
                 const letterBtn = document.querySelector(`.${letter}`)
                 letterBtn.parentNode.removeChild(letterBtn)
-                animation('display_container', 'wiggle', 500)
+                animation('display', 'wiggle', 500)
             } else {
                 if (value == 1) {
                     for (let i = 0; i < fullWordArrayUntouched.length; i++) {
