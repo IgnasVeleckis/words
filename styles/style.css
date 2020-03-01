@@ -141,6 +141,14 @@ body {
   margin-bottom: 3rem;
 }
 
+.display #1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 20%;
+  background-color: rgba(255, 0, 0, 0.315);
+}
+
 .display .display_container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -215,7 +223,7 @@ body {
   color: #f8b31d;
   font-size: 1.5rem;
   background-color: #1f5397;
-  font-weight: 600;
+  font-weight: 0;
 }
 
 .letters button:hover {
@@ -250,96 +258,6 @@ body {
     height: 2rem;
     border-radius: 10px;
     font-size: 1rem;
-  }
-}
-
-.difficulty_container .difficulty {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #f8b31d;
-}
-
-.difficulty_container .difficulty .logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 50%;
-  width: 50%;
-}
-
-.difficulty_container .difficulty .logo img {
-  height: 100%;
-}
-
-.difficulty_container .difficulty .title span {
-  font-size: 1.5rem;
-  color: #1f5397;
-  font-weight: 600;
-}
-
-.difficulty_container .difficulty .button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 50%;
-  width: 50%;
-}
-
-.difficulty_container .difficulty .button button {
-  height: 20%;
-  width: 40%;
-  min-width: 30%;
-  margin: 1rem;
-  border-radius: 20px;
-  color: white;
-  background-color: #1f5397;
-  font-size: 1.5rem;
-  border: none;
-  -webkit-transition: .2s;
-  transition: .2s;
-  padding: 0 1rem;
-}
-
-.difficulty_container .difficulty .button button:hover {
-  cursor: pointer;
-  background-color: white;
-  color: #1f5397;
-}
-
-.difficulty_container .difficulty.hide {
-  display: none;
-}
-
-@media (max-width: 716px) {
-  .difficulty .button button {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 553px) {
-  .difficulty .button {
-    width: 80%;
   }
 }
 
@@ -462,7 +380,7 @@ body {
   font-weight: 600;
 }
 
-.end button {
+.end button.end_btn {
   height: 100px;
   width: 200px;
   margin-top: 2rem;
@@ -476,7 +394,7 @@ body {
   padding: 0 1rem;
 }
 
-.end button:hover {
+.end button.end_btn:hover {
   cursor: pointer;
   background-color: white;
   color: #1f5397;
@@ -513,5 +431,100 @@ body {
   background-color: #f8b31d;
   font-size: 3rem;
   color: #1f5397;
+}
+
+.difficulty_container .difficulty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f8b31d;
+}
+
+.difficulty_container .difficulty .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 50%;
+  width: 50%;
+}
+
+.difficulty_container .difficulty .logo img {
+  height: 100%;
+}
+
+.difficulty_container .difficulty .title span {
+  font-size: 1.5rem;
+  color: #1f5397;
+  font-weight: 600;
+}
+
+.difficulty_container .difficulty .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 50%;
+  width: 55%;
+}
+
+.difficulty_container .difficulty .button button {
+  height: 20%;
+  width: 40%;
+  min-width: 30%;
+  margin: 1rem;
+  border-radius: 20px;
+  color: white;
+  background-color: #1f5397;
+  font-size: 1.5rem;
+  border: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  padding: 0 1rem;
+}
+
+.difficulty_container .difficulty .button button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #1f5397;
+}
+
+.difficulty_container .difficulty.hide {
+  display: none;
+}
+
+@media (max-width: 716px) {
+  .difficulty .button {
+    width: 80%;
+  }
+  .difficulty .button button {
+    color: red;
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 553px) {
+  .difficulty .button button {
+    color: red;
+    min-width: 50%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
