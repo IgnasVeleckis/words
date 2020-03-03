@@ -433,6 +433,12 @@ body {
   color: #1f5397;
 }
 
+.load img {
+  height: 20%;
+  -webkit-animation: turn360 5s;
+          animation: turn360 5s;
+}
+
 .difficulty_container .difficulty {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -16,4 +16,8 @@
         font-size: 3rem;
         color: $primary;
     }
+    img {
+        height: 20%;
+        animation: turn360 5s;
+    }
 }
