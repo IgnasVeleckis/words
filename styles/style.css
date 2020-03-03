@@ -435,8 +435,8 @@ body {
 
 .load img {
   height: 20%;
-  -webkit-animation: turn360 5s;
-          animation: turn360 5s;
+  -webkit-animation: turn360 5s infinite;
+          animation: turn360 5s infinite;
 }
 
 .difficulty_container .difficulty {
