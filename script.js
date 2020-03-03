@@ -71,13 +71,10 @@ const fetchPokemon = () => {
 function createSecretWord(name) {
     const heartContainer = document.querySelector('.live');
     if (game_mode == 1) {
-        console.log('game mode: ' + game_mode)
         removed = 6
     } else if (game_mode == 2) {
         removed = 4
-        console.log('game mode: ' + game_mode)
     } else if (game_mode == 3) {
-        console.log('game mode: ' + game_mode)
         removed = 999 // 2
     }
     heartContainer.innerHTML = removed + 1
@@ -91,7 +88,7 @@ function createSecretWord(name) {
     const containerLetter = document.querySelector('.letters');
     const containerDisplay = document.querySelector('.display_container');
 
-    for (let i = 0; i < fullWordArray.length; i++) { // creating hidden word 
+    for (let i = 0; i < fullWordArray.length; i++) {
         const span = document.createElement('span');
         span.textContent = fullWordArray[i];
         span.classList.add('hidden')
@@ -115,7 +112,6 @@ function createSecretWord(name) {
 
         button.addEventListener('click', () => {
             value++
-
             button.classList.add('green')
 
             if (fullWordArray.indexOf(letter) == -1) {
@@ -131,8 +127,9 @@ function createSecretWord(name) {
                             let element = document.getElementsByTagName('span')[i + 1];
                             element.classList.remove('hidden')
                             word.pop()
+
                             if (word.length == 0) {
-                                win(1)
+                                win(fullWordArray.join(''), poke_pic)
                                 setTimeout(() => {
                                     win()
                                 }, 5000)
@@ -149,10 +146,6 @@ function createSecretWord(name) {
     }
 }
 
-function removeEvent() {
-    console.log('aaa')
-
-}
 
 function shuffleArray(array) {
     let currentIndex = array.length,
@@ -166,8 +159,6 @@ function shuffleArray(array) {
     }
     return array;
 }
-
-
 
 function removeHeart() {
     const heartContainer = document.querySelector('.live');
@@ -208,25 +199,29 @@ function loading(val) {
 }
 
 
-function win(add) {
+function win(name, img) {
 
+    const image = img
 
-
-    if (add) {
+    if (name) {
         const container = document.createElement('div')
         const div = document.createElement('div')
+        const divImg = document.createElement('img')
+        divImg.src = image
         container.classList.add('win')
         div.classList.add('win_win')
-        div.textContent = "YOU WIN!!!"
+        div.textContent = `${name}`
         container.classList.add('show')
+        container.appendChild(divImg)
         container.appendChild(div)
         document.body.appendChild(container)
         animation('win_win', 'zoom_in_out', 5000)
+
     } else {
         const containerr = document.querySelector('.win')
         document.body.removeChild(containerr)
-        reset()
     }
+    reset()
 }
 
 /* win(1)
@@ -238,7 +233,7 @@ setTimeout(() => {
 function reset() {
 
     const startContainer = document.querySelector('.difficulty')
-    const display = document.querySelector('.display')
+    const display = document.querySelector('.display_container')
     const letters = document.querySelector('.letters')
     startContainer.classList.remove('hide')
     display.innerHTML = ''
