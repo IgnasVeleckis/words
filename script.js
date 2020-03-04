@@ -138,7 +138,7 @@ function createSecretWord(name) {
                 removeHeart()
                 const letterBtn = document.querySelector(`.${letter}`)
                 letterBtn.parentNode.removeChild(letterBtn)
-                animation('display_container', 'wiggle', 500)
+                animation('display_container', 'wiggle', 10000)
             } else {
                 if (value == 1) {
                     for (let i = 0; i < fullWordArray.length; i++) {
@@ -151,7 +151,7 @@ function createSecretWord(name) {
                                 win(fullWordArray.join(''), poke_pic)
                                 setTimeout(() => {
                                     win()
-                                }, 5000)
+                                }, 10000)
                             }
 
                         }

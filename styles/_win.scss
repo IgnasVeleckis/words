@@ -1,5 +1,8 @@
 .win {
     display: none;
+    img {
+        height: 30%;
+    }
     .win_win {
         z-index: 9999;
         width: 40%;
@@ -8,7 +11,7 @@
         justify-content: center;
         align-items: center;
         &.zoom_in_out {
-            animation: zoom_in_out 5s;
+            animation: zoom_in_out 5s linear;
         }
     }
     &.show {
@@ -23,7 +26,6 @@
         left: 0;
         height: 100%;
         width: 100%;
-        z-index: 100;
         transition: 3s;
         background-color: $bckgrnd;
         font-size: 3rem;

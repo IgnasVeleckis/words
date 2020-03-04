@@ -1,3 +1,7 @@
-style
+
 
 pokemon name with -
+
+
+BUGS:
+name in devtools
