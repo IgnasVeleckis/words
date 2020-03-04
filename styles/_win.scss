@@ -1,6 +1,7 @@
 .win {
     display: none;
     .win_win {
+        z-index: 9999;
         width: 40%;
         height: 40%;
         display: flex;
@@ -11,6 +12,7 @@
         }
     }
     &.show {
+        z-index: 9999;
         display: flex;
         justify-content: center;
         align-items: center;

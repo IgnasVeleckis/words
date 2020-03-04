@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon game</title>
+    <link href="assets/fontawesome-free-5.12.1-web/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
@@ -19,9 +20,9 @@
                 <span>Pick difficulty:</span>
             </div>
             <div class="button">
-                <button onclick="diff(1)">Easy 7 </button>
-                <button onclick="diff(2)">Normal 5</button>
-                <button onclick="diff(3)">test 1000</button>
+                <button onclick="diff(1)" class="diff">Easy 7 </button>
+                <button onclick="diff(2)" class="diff">Normal 5</button>
+                <button onclick="diff(3)" class="diff">test 1000</button>
             </div>
         </div>
 
@@ -31,6 +32,7 @@
 
     <div class="image">
         <img src="" alt="pokemon" id="poke_image">
+
     </div>
 
     <div class="display">
@@ -40,8 +42,7 @@
     <div class="letters"></div>
 
     <div class="live_bar">
-        <span style="display: flex; justify-content: center; align-items:
-                center;">Lives:</span>
+        <span><i class="fas fa-heart"></i></span>
         <div class="heart">
             <p class="live"></p>
         </div>
@@ -53,7 +54,7 @@
     </div>
 
     <div class="load">
-        <img src="assets/poke.png">
+        <img src="assets/poke.png" alt="poke">
     </div>
 
     <script src="script.js"></script>

@@ -2,14 +2,21 @@
     display: flex;
     justify-content: center;
     img {
-        height: 200px;
-        width: 200px;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        margin-left: -125px;
+        height: 250px;
+        width: 250px;
+        z-index: 100;
     }
 }
 
 @media (max-width: 553px) {
     .image {
         img {
+            top: -10px;
+            margin-left: -80px;
             height: 160px;
             width: 160px;
         }

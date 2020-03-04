@@ -1,4 +1,4 @@
-const allLetters = [
+let allLetters = [
     'a',
     'b',
     'c',
@@ -26,6 +26,7 @@ const allLetters = [
     'y',
     'z'
 ]
+var withoutName = [];
 
 var name;
 var poke_pic;
@@ -83,7 +84,6 @@ function createSecretWord(name) {
 
     const secretWord = name;
     const fullWordArray = secretWord.split('');
-    const fullWordArrayUntouched = secretWord.split('');
 
     const containerLetter = document.querySelector('.letters');
     const containerDisplay = document.querySelector('.display_container');
@@ -96,10 +96,29 @@ function createSecretWord(name) {
     }
 
 
+
+    for (var i = 0; i < allLetters.length; i++) {
+        if (fullWordArray.indexOf(allLetters[i]) === -1) {
+            withoutName.push(allLetters[i]);
+        }
+    }
+    withoutName.pop()
+    withoutName.pop()
+
+    withoutName = withoutName.concat(fullWordArray)
+    const newSet = new Set(withoutName)
+    const newArray = [...newSet]
+
+    allLetters = newArray
+
+
+
+
     shuffleArray(allLetters);
+
     const display = document.querySelector('.display_container')
     const units = display.children;
-    for (let i = 0; i < fullWordArrayUntouched.length; i++) {
+    for (let i = 0; i < fullWordArray.length; i++) {
         word.push(units[i].classList)
     }
 
@@ -119,11 +138,11 @@ function createSecretWord(name) {
                 removeHeart()
                 const letterBtn = document.querySelector(`.${letter}`)
                 letterBtn.parentNode.removeChild(letterBtn)
-                animation('display', 'wiggle', 500)
+                animation('display_container', 'wiggle', 500)
             } else {
                 if (value == 1) {
-                    for (let i = 0; i < fullWordArrayUntouched.length; i++) {
-                        if (letter == fullWordArrayUntouched[i]) {
+                    for (let i = 0; i < fullWordArray.length; i++) {
+                        if (letter == fullWordArray[i]) {
                             let element = document.getElementsByTagName('span')[i + 1];
                             element.classList.remove('hidden')
                             word.pop()
@@ -224,14 +243,8 @@ function win(name, img) {
     reset()
 }
 
-/* win(1)
-
-setTimeout(() => {
-    win()
-}, 2000) */
 
 function reset() {
-
     const startContainer = document.querySelector('.difficulty')
     const display = document.querySelector('.display_container')
     const letters = document.querySelector('.letters')

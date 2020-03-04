@@ -2,13 +2,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 3rem;
-    #1 {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 20%;
-        background-color: rgba(255, 0, 0, 0.315);
-    }
+    margin-top: 200px;
     .display_container {
         display: flex;
         justify-content: center;
@@ -40,6 +34,7 @@
 @media (max-width: 553px) {
     .display {
         margin-bottom: 1rem;
+        margin-top: 130px;
         .display_container {
             span {
                 width: 1.5rem;
