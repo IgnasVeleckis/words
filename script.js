@@ -69,7 +69,8 @@ const fetchPokemon = () => {
     })
 }
 
-function createSecretWord(name) {
+
+const createSecretWord = (name) => {
     const heartContainer = document.querySelector('.live');
     if (game_mode == 1) {
         removed = 6
@@ -122,9 +123,9 @@ function createSecretWord(name) {
         word.push(units[i].classList)
     }
 
-    for (let i = 0; i < allLetters.length; i++) {
+    for (let letters in allLetters) {
         const button = document.createElement('button');
-        let letter = allLetters[i]
+        let letter = allLetters[letters]
         button.textContent = letter;
         let value = button.value
         value = 0
@@ -138,9 +139,9 @@ function createSecretWord(name) {
                 removeHeart()
                 const letterBtn = document.querySelector(`.${letter}`)
                 letterBtn.parentNode.removeChild(letterBtn)
-                animation('display_container', 'wiggle', 10000)
+                animation('display_container', 'wiggle', 500)
             } else {
-                if (value == 1) {
+                if (value === 1) {
                     for (let i = 0; i < fullWordArray.length; i++) {
                         if (letter == fullWordArray[i]) {
                             let element = document.getElementsByTagName('span')[i + 1];
@@ -157,6 +158,8 @@ function createSecretWord(name) {
                         }
                     }
                 }
+
+
             }
         })
 
@@ -165,8 +168,106 @@ function createSecretWord(name) {
     }
 }
 
+/* function createSecretWord(name) {
+    const heartContainer = document.querySelector('.live');
+    if (game_mode == 1) {
+        removed = 6
+    } else if (game_mode == 2) {
+        removed = 4
+    } else if (game_mode == 3) {
+        removed = 999 // 2
+    }
+    heartContainer.innerHTML = removed + 1
 
-function shuffleArray(array) {
+    document.querySelector('.end').classList.add('hidden');
+
+    const secretWord = name;
+    const fullWordArray = secretWord.split('');
+
+    const containerLetter = document.querySelector('.letters');
+    const containerDisplay = document.querySelector('.display_container');
+
+    for (let i = 0; i < fullWordArray.length; i++) {
+        const span = document.createElement('span');
+        span.textContent = fullWordArray[i];
+        span.classList.add('hidden')
+        containerDisplay.appendChild(span)
+    }
+
+
+
+    for (var i = 0; i < allLetters.length; i++) {
+        if (fullWordArray.indexOf(allLetters[i]) === -1) {
+            withoutName.push(allLetters[i]);
+        }
+    }
+    withoutName.pop()
+    withoutName.pop()
+
+    withoutName = withoutName.concat(fullWordArray)
+    const newSet = new Set(withoutName)
+    const newArray = [...newSet]
+
+    allLetters = newArray
+
+
+
+
+    shuffleArray(allLetters);
+
+    const display = document.querySelector('.display_container')
+    const units = display.children;
+    for (let i = 0; i < fullWordArray.length; i++) {
+        word.push(units[i].classList)
+    }
+
+    for (let letters in allLetters) {
+        const button = document.createElement('button');
+        let letter = allLetters[letters]
+        button.textContent = letter;
+        let value = button.value
+        value = 0
+
+        button.addEventListener('click', () => {
+            value++
+            button.classList.add('green')
+
+            if (fullWordArray.indexOf(letter) == -1) {
+                button.classList.add(`${letter}`)
+                removeHeart()
+                const letterBtn = document.querySelector(`.${letter}`)
+                letterBtn.parentNode.removeChild(letterBtn)
+                animation('display_container', 'wiggle', 500)
+            } else {
+                if (value === 1) {
+                    for (let i = 0; i < fullWordArray.length; i++) {
+                        if (letter == fullWordArray[i]) {
+                            let element = document.getElementsByTagName('span')[i + 1];
+                            element.classList.remove('hidden')
+                            word.pop()
+
+                            if (word.length == 0) {
+                                win(fullWordArray.join(''), poke_pic)
+                                setTimeout(() => {
+                                    win()
+                                }, 10000)
+                            }
+
+                        }
+                    }
+                }
+
+
+            }
+        })
+
+
+        containerLetter.appendChild(button)
+    }
+} */
+
+
+const shuffleArray = (array) => {
     let currentIndex = array.length,
         temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -179,7 +280,20 @@ function shuffleArray(array) {
     return array;
 }
 
-function removeHeart() {
+/* function shuffleArray(array) {
+    let currentIndex = array.length,
+        temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
+} */
+
+const removeHeart = () => {
     const heartContainer = document.querySelector('.live');
     heartContainer.innerHTML = removed
     if (removed == 0) {
@@ -189,7 +303,17 @@ function removeHeart() {
     }
 }
 
-function endTable(val) {
+/* function removeHeart() {
+    const heartContainer = document.querySelector('.live');
+    heartContainer.innerHTML = removed
+    if (removed == 0) {
+        endTable()
+    } else {
+        removed--
+    }
+} */
+
+const endTable = (val) => {
     if (val) {
         document.querySelector('.end').classList.add('hidden');
     } else {
@@ -197,8 +321,16 @@ function endTable(val) {
     }
 }
 
+/* function endTable(val) {
+    if (val) {
+        document.querySelector('.end').classList.add('hidden');
+    } else {
+        document.querySelector('.end').classList.remove('hidden');
+    }
+} */
 
-function animation(domElement, animation, timeout) {
+
+const animation = (domElement, animation, timeout) => {
     const element = document.querySelector(`.${domElement}`);
     element.classList.add(`${animation}`)
     setTimeout((() => {
@@ -206,20 +338,34 @@ function animation(domElement, animation, timeout) {
     }), timeout)
 }
 
+/* function animation(domElement, animation, timeout) {
+    const element = document.querySelector(`.${domElement}`);
+    element.classList.add(`${animation}`)
+    setTimeout((() => {
+        element.classList.remove(`${animation}`)
+    }), timeout)
+} */
 
 
-function loading(val) {
-    const load = document.querySelector('.load')
-    if (val) {
-        load.classList.add('show')
-    } else {
-        load.classList.remove('show')
+const loading = (val) => {
+        const load = document.querySelector('.load')
+        if (val) {
+            load.classList.add('show')
+        } else {
+            load.classList.remove('show')
+        }
     }
-}
+    /* function loading(val) {
+        const load = document.querySelector('.load')
+        if (val) {
+            load.classList.add('show')
+        } else {
+            load.classList.remove('show')
+        }
+    } */
 
 
-function win(name, img) {
-
+const win = (name, img) => {
     const image = img
 
     if (name) {
@@ -244,13 +390,50 @@ function win(name, img) {
 }
 
 
-function reset() {
-    const startContainer = document.querySelector('.difficulty')
-    const display = document.querySelector('.display_container')
-    const letters = document.querySelector('.letters')
-    startContainer.classList.remove('hide')
-    display.innerHTML = ''
-    letters.innerHTML = ''
-    endTable(1)
-    diff()
-}
+/* function win(name, img) {
+
+    const image = img
+
+    if (name) {
+        const container = document.createElement('div')
+        const div = document.createElement('div')
+        const divImg = document.createElement('img')
+        divImg.src = image
+        container.classList.add('win')
+        div.classList.add('win_win')
+        div.textContent = `${name}`
+        container.classList.add('show')
+        container.appendChild(divImg)
+        container.appendChild(div)
+        document.body.appendChild(container)
+        animation('win_win', 'zoom_in_out', 5000)
+
+    } else {
+        const containerr = document.querySelector('.win')
+        document.body.removeChild(containerr)
+    }
+    reset()
+} */
+
+
+const reset = () => {
+        const startContainer = document.querySelector('.difficulty')
+        const display = document.querySelector('.display_container')
+        const letters = document.querySelector('.letters')
+        startContainer.classList.remove('hide')
+        display.innerHTML = ''
+        letters.innerHTML = ''
+        endTable(1)
+        diff()
+        console.log('x')
+    }
+    /* function reset() {
+        const startContainer = document.querySelector('.difficulty')
+        const display = document.querySelector('.display_container')
+        const letters = document.querySelector('.letters')
+        startContainer.classList.remove('hide')
+        display.innerHTML = ''
+        letters.innerHTML = ''
+        endTable(1)
+        diff()
+    } */
