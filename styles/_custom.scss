@@ -1,0 +1,34 @@
+// flex
+.flex {
+    display: flex;
+    &-column {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.jc {
+    &-start {
+        justify-content: start;
+    }
+    &-center {
+        justify-content: center;
+    }
+    &-end {
+        justify-content: end;
+    }
+    &-space-around {
+        justify-content: space-around;
+    }
+    &-space-between {
+        justify-content: space-between;
+    }
+}
+
+.ai {
+    &-center {
+        align-items: center;
+    }
+}
+
+//colors

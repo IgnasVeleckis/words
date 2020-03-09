@@ -46,6 +46,8 @@ const diff = (difficulty) => {
     }
 }
 
+
+
 const fetchPokemon = () => {
 
     const promises = []

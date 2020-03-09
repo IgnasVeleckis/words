@@ -2,10 +2,6 @@
     z-index: 500;
     .difficulty {
         z-index: 500;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
         position: absolute;
         top: 0;
         left: 0;
@@ -13,8 +9,6 @@
         width: 100%;
         background-color: $bckgrnd;
         .logo {
-            display: flex;
-            justify-content: center;
             height: 50%;
             width: 50%;
             img {
@@ -29,8 +23,6 @@
             }
         }
         div.button {
-            display: flex;
-            justify-content: center;
             height: 50%;
             width: 55%;
             button.diff {

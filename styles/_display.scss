@@ -1,11 +1,7 @@
 .display {
-    display: flex;
-    justify-content: center;
     margin-bottom: 3rem;
     margin-top: 200px;
     .display_container {
-        display: flex;
-        justify-content: center;
         span {
             border-bottom: 3px solid $primary;
             display: flex;
