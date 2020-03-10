@@ -7,7 +7,7 @@
     }
 }
 
-.jc {
+._h {
     &-start {
         justify-content: start;
     }
@@ -25,10 +25,34 @@
     }
 }
 
-.ai {
+._v {
     &-center {
+        align-items: center;
+    }
+    &-start {
+        align-items: center;
+    }
+    &-end {
+        align-items: center;
+    }
+    &-baseline {
         align-items: center;
     }
 }
 
 //colors
+._primary {
+    color: $primary;
+}
+
+._secondary {
+    color: $secondary;
+}
+
+._accent {
+    color: $accent;
+}
+
+._backgorund {
+    color: $bckgrnd;
+}

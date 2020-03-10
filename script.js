@@ -248,5 +248,4 @@ const reset = () => {
     letters.innerHTML = ''
     endTable(1)
     diff()
-    console.log('x')
 }

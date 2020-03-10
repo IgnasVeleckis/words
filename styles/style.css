@@ -503,38 +503,72 @@ body {
           flex-direction: column;
 }
 
-.jc-start {
+._h-start {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
 }
 
-.jc-center {
+._h-center {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.jc-end {
+._h-end {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
 }
 
-.jc-space-around {
+._h-space-around {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
 
-.jc-space-between {
+._h-space-between {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-.ai-center {
+._v-center {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+._v-start {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+._v-end {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+._v-baseline {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+._primary {
+  color: #1f5397;
+}
+
+._secondary {
+  color: red;
+}
+
+._accent {
+  color: red;
+}
+
+._backgorund {
+  color: #f8b31d;
 }
 /*# sourceMappingURL=style.css.map */
