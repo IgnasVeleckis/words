@@ -218,8 +218,10 @@ const loading = (val) => {
 }
 
 const win = (name, img) => {
+
     const image = img
     if (name) {
+        console.log('hello')
         const container = document.createElement('div')
         const div = document.createElement('div')
         const divImg = document.createElement('img')
